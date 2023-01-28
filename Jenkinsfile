@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('build automaticaly') {
+        stage('build') {
             steps {
                 echo 'build1'
             }
