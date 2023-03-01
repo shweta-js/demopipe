@@ -1,0 +1,40 @@
+1. Merge Conflict in Local 
+2. Merge Conflict in GitHub
+
+
+ Jenkins 
+1. Job with Hello World or Java Version(Batch Command). New Item > Name >FreeStyle > Add Description Build Steps : Add build Steps > Execute Windows batch command > echo "Hello World" or javac --version Appy and Save Enter Build Now 
+
+
+2. Same Job build periodically.(Two types : Build periodically, Poll SCM )
+ New Item > Name >FreeStyle > Add Description In Build Triggers : 
+Select Build periodically and Poll SCM Inside give 5 stars (* * * * * ) 1. * * * * * = Per Minute 2. H/15 * * * * = Per 15 Minutes
+ 3. H H * * * = Every Per Day
+ Build Steps : Add build Steps > Execute Windows batch command > echo "Hello World" or javac --version Appy and Save Enter Build Now
+
+
+ 3. Pipeline: 
+● with 3 Jobs (Build, Test, Deploy) using View(+) Install Pulgins: Manage Jenkins > Manage Plugins > Available Pulgins > Search Build Pipeline Plugin Create 3 jobs Build, Test and Deploy.(refer Q.1) Go to Job Build > configure In Post-build action > Select build other project or build other project(manually) > In projects to build > Enter Next Job name (Test). Apply and save Repeat the same for Test. Create Pipeline View. In dashboard select new view (+) In New view : add name > select build Pipeline View>Add name>select initial job>Apply and save 
+
+
+● With pipeline script with helloworld(Declarative) In dashboard :-new item >enter name>select pipeline>pipeline>script>select hello world from right corner>apply and save and build project 
+
+
+● Pipeline script with svm(Declarative) In dashboard :-new item >enter name>add poll svm or build periodically >select pipeline>pipeline>script>pipeline script from svm >in svm select git > paste repository from git with a jenkinfile >credential add email and password of app or gitpassword try >branches select main or master >script :jenkinfile refer from github >apply and save .
+
+
+ ● Pipeline script with svm webhook In dashboard :-new item >enter name >select pipeline>pipeline>script>pipeline script from svm >in svm select git > paste repository from git with a jenkinfile >credential add email and password of app or git password try >branches select main or master >script :jenkinfile refer from github >apply and save . Go to git hub :go to repo with jenkinfile>settings >webhook>add webhook>payload url from ngrok:commands 1)ngrok.exe http 8080 Paste the link after /github-webhook/ >select send me everything >select activate>add webhook . Relode the git hub after making changes to a file >go to jenkins and reload it will build automatically .
+
+
+
+
+ 4. Email:
+ ● E-mail Notification Go to dashboard >manage jenkins >configure system>go buttom >email Notification>smtpserver:-smtp.gmail.com>select use smtp authentication:user name: email password:app generated >use ssl tick >smtp port:465>reply to address: email >charset :utf-8>test configuration by sending test e-mail add email and test configuration the message will be sent to your email. 
+● Extended E-mail Notification Go to dashboard >manage jenkins >configure system>go buttom>Extended-EmailNotification>smtpserver:-smtp.gmail.com >smtp port:465>default content type:html(text/html)>default triggers:select :-always Create a job >freestyle>got to buttom post-build action :-select Editable Email Notification >project from :any name>project recipient :-(email id ) project-reply-to-list :-(email id)> content type (html/text) apply and save build a job it will get notification to your mail 
+
+
+● Extended E-mail Notification with Pipeline.(Two types : with Pipeline script , Pipeline script with svm) Go to dashboard>new item >pipeline >select build periodically>pipeline select :-pipeline script trysamplepipline select hello world paste the program:- pipeline { agent any stages { stage('apna') { steps { echo 'Hello World' } } stage('pipeline') { steps { echo 'Hello World' } } stage('ajay') { steps { echo 'Hello World' } } } post { always { emailext body: 'ajaypipeline', subject: 'apnapipeline', to: 'hritikhotagiofficial@gmail.com' } } } Apply and save and build the project Go to dashboard>new item >pipeline >select build periodically>pipeline select>pipeline script from SCM>Add scm :-git >repositiory >repository url:-git email >credential add git hub user name :- email password :-git or app generated>discription :-add anything >scriptpath :jenkinfile or see the git hub file name apply save and build 
+
+
+. 5. Role Based Authorization
+ 6. Maven
