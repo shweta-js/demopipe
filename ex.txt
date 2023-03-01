@@ -1,5 +1,8 @@
 1. Merge Conflict in Local 
 2. Merge Conflict in GitHub
+git pull --rebase origin main
+git log
+git checkout (1st 8 digit of git log) .
 
 
  Jenkins 
