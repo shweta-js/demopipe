@@ -33,7 +33,39 @@ Select Build periodically and Poll SCM Inside give 5 stars (* * * * * ) 1. * * *
 ● Extended E-mail Notification Go to dashboard >manage jenkins >configure system>go buttom>Extended-EmailNotification>smtpserver:-smtp.gmail.com >smtp port:465>default content type:html(text/html)>default triggers:select :-always Create a job >freestyle>got to buttom post-build action :-select Editable Email Notification >project from :any name>project recipient :-(email id ) project-reply-to-list :-(email id)> content type (html/text) apply and save build a job it will get notification to your mail 
 
 
-● Extended E-mail Notification with Pipeline.(Two types : with Pipeline script , Pipeline script with svm) Go to dashboard>new item >pipeline >select build periodically>pipeline select :-pipeline script trysamplepipline select hello world paste the program:- pipeline { agent any stages { stage('apna') { steps { echo 'Hello World' } } stage('pipeline') { steps { echo 'Hello World' } } stage('ajay') { steps { echo 'Hello World' } } } post { always { emailext body: 'ajaypipeline', subject: 'apnapipeline', to: 'hritikhotagiofficial@gmail.com' } } } Apply and save and build the project Go to dashboard>new item >pipeline >select build periodically>pipeline select>pipeline script from SCM>Add scm :-git >repositiory >repository url:-git email >credential add git hub user name :- email password :-git or app generated>discription :-add anything >scriptpath :jenkinfile or see the git hub file name apply save and build 
+● Extended E-mail Notification with Pipeline.(Two types : with Pipeline script , Pipeline script with svm) Go to dashboard>new item >pipeline >select build periodically>pipeline select :-pipeline script trysamplepipline select hello world paste the program:-
+
+pipeline {
+agent any
+stages {
+stage('apna') {
+steps {
+echo 'Hello World'
+}
+}
+stage('pipeline') {
+steps {
+echo 'Hello World'
+}
+}
+stage('ajay') {
+steps {
+echo 'Hello World'
+}
+}
+}
+post
+{
+always
+{
+emailext body: 'ajaypipeline', subject: 'apnapipeline', to:
+'hritikhotagiofficial@gmail.com'
+}
+}
+}
+
+
+Apply and save and build the project Go to dashboard>new item >pipeline >select build periodically>pipeline select>pipeline script from SCM>Add scm :-git >repositiory >repository url:-git email >credential add git hub user name :- email password :-git or app generated>discription :-add anything >scriptpath :jenkinfile or see the git hub file name apply save and build 
 
 
 . 5. Role Based Authorization
