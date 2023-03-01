@@ -1,26 +1,35 @@
 pipeline {
     agent any
 
-    stages {
-        stage('build') {
-            steps {
-                echo 'build automatic'
+    stages 
+    {
+        stage('Build') 
+        {
+            steps 
+            {
+                echo 'This is to build an App'
             }
         }
-         stage('test') {
-            steps {
-                echo 'test1sdfsdfsdfsd'
+        stage('Test') 
+        {
+            steps 
+            {
+                echo 'This is to test an App'
             }
         }
-         stage('deploy') {
-            steps {
-                echo 'deploy1automatic'
-            }
-        }
-         stage('release') {
-            steps {
-                echo 'release1dhkfjhds'
+        stage('Deploy') 
+        {
+            steps 
+            {
+                echo 'This is to deploy an App'
             }
         }
     }
+	post
+	{
+		always
+		{
+			emailext body: 'sdfghjkuytfvbnmkjbn', replyTo: 'shwetajs.lrn@gmail.com', subject: 'dfghjk', to: 'shwetajs.lrn@gmail.com'
+		}
+	}
 }
