@@ -1,6 +1,6 @@
 1. Merge Conflict in Local 
 2. Merge Conflict in GitHub
-git rebase -continue
+git rebase --continue
 git pull --rebase origin main
 git log
 git checkout (1st 8 digit of git log) .
