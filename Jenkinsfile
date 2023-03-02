@@ -7,7 +7,7 @@ pipeline {
         {
             steps 
             {
-                echo 'Thigjgjhkhkjwebhook'
+                echo 'Thigook'
             }
         }
         stage('Test') 
