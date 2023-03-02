@@ -7,7 +7,7 @@ pipeline {
         {
             steps 
             {
-                echo 'Thigook'
+                echo 'Thigofghjnbvghjnok'
             }
         }
         stage('Test') 
